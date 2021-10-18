@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RoomDao extends JpaRepository<Room, Long>{
 
-    @Query("select c from Room c where c.name=:name")
+    @Query("select c from Room c where c.ID=:id")
 
-     Room findByName(@Param("name") String name);
+     Room getById(@Param("id") Long id);
 }

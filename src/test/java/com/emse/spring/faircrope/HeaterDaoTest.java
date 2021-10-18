@@ -1,7 +1,9 @@
 package com.emse.spring.faircrope;
 
+import com.emse.spring.faircrope.Repository.HeaterDao;
 import com.emse.spring.faircrope.Repository.RoomDao;
 import com.emse.spring.faircrope.Repository.WindowDao;
+import com.emse.spring.faircrope.model.Heater;
 import com.emse.spring.faircrope.model.Room;
 import com.emse.spring.faircrope.model.Window;
 import com.emse.spring.faircrope.model.WindowStatus;
@@ -18,44 +20,22 @@ import java.util.stream.Collectors;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
- class WindowDaoTest {
+class HeaterDaoTest {
 
     @Autowired
-    WindowDao windowDao;
+    HeaterDao heaterDao;
     @Autowired
     RoomDao roomDao;
 
-    @Test
-    public void shouldFindAWindow() {
-        Window window = windowDao.getById(-10L);
-        Assertions.assertThat(window.getName()).isEqualTo("Window 1");
-        Assertions.assertThat(window.getWindowStatus()).isEqualTo(WindowStatus.CLOSED);
-    }
 
-
-    @Test
-    public void shouldFindRoomOpenWindows() {
-        List<Window> result = windowDao.findRoomOpenWindows(-9L);
-        Assertions.assertThat(result)
-                .hasSize(1)
-                .extracting("id", "windowStatus")
-                .containsExactly(Tuple.tuple(-8L, WindowStatus.OPEN));
-    }
-
-    @Test
-    public void shouldNotFindRoomOpenWindows() {
-        List<Window> result = windowDao.findRoomOpenWindows(-10L);
-        Assertions.assertThat
-                (result).isEmpty();
-    }
     @Test
     public void shouldDeleteWindowsRoom() {
         Room room = roomDao.getById(-10L);
         List<Long> roomIds = room.getWindows().stream().map(Window::getId).collect(Collectors.toList());
         Assertions.assertThat(roomIds.size()).isEqualTo(2);
 
-        windowDao.deleteByRoom(-10L);
-        List<Window> result = windowDao.findAllById(roomIds);
+        heaterDao.DeleteByRoom(-10L);
+        List<Heater> result = heaterDao.findAllById(roomIds);
         Assertions.assertThat(result).isEmpty();
 
     }
