@@ -78,6 +78,12 @@ public class Room {
     @GeneratedValue
     private long ID;
 
+    public Room( Integer floor, String name) {
+
+        this.floor = floor;
+        this.name = name;
+    }
+
     @Column(nullable = false)
     private Integer floor;
     @Column(nullable = false)

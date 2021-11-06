@@ -6,6 +6,12 @@ import javax.persistence.*;
 public class Heater {
     public Heater() {
     }
+    public Heater( Room room,String name, HeaterStatus heaterStatus) {
+        this.name = name;
+        this.heaterStatus = heaterStatus;
+        this.room = room;
+    }
+
 
     public Heater(Long id, String name, Long power, Room room, HeaterStatus heaterStatus) {
         this.id = id;

@@ -5,12 +5,23 @@ import javax.persistence.*;
 @Entity
 @Table(name = "RWINDOW")
 public class Window {
+    public Window( Room room,String name, WindowStatus windowStatus) {
+        this.name = name;
+        this.windowStatus = windowStatus;
+        this.room = room;
+    }
+
     @Id
     @GeneratedValue
     private Long id;
 
     @Column(nullable=false)
     private String name;
+
+    public Room getRoom() {
+        return room;
+    }
+
     @Column(nullable=false)
     @Enumerated(EnumType.STRING)
     private WindowStatus windowStatus;
