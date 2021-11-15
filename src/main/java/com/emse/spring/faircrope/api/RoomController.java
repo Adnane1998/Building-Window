@@ -76,6 +76,8 @@ public class RoomController {
 class RoomDto {
     private Long id;
     private String name;
+    private Double CT;
+    private Double TT;
 
     private Integer floor;
 
@@ -96,10 +98,19 @@ class RoomDto {
     public RoomDto() {
     }
 
+    public Double getCT() {
+        return CT;
+    }
+
+    public Double getTT() {
+        return TT;
+    }
+
     public RoomDto(Room room) {
         this.id = room.getID();
         this.name =room.getName();
-
+        this.CT=room.getCT();
+        this.TT=room.getTT();
         this.floor = room.getFloor();
 
     }
