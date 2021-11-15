@@ -90,7 +90,8 @@ public class Room {
     private String name;
     private Double CT;
     private Double TT;
-
+    @ManyToOne
+    private Building building;
     @OneToMany(mappedBy = "room")
     private Set<Heater> heaters;
     @OneToMany(mappedBy = "room")
