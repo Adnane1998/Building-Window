@@ -2,6 +2,8 @@
   "build": {
     "type": "gradle",
     "goal": "assemble"
+  },
+  "deploy": {
+    "jarName": "./out/artifacts/faircrope_jar/faircrope.jar"
   }
-
 }
