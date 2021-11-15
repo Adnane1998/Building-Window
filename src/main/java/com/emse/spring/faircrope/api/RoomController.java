@@ -55,8 +55,8 @@ public class RoomController {
     }
 
     @PutMapping(path = "/{room_id}/switchWindow")
-    public RoomDto switchStatusWindows(@PathVariable Long id) {
-        Room room = roomDao.findById(id).orElseThrow(IllegalArgumentException::new);
+    public RoomDto switchStatusWindows(@PathVariable Long room_id) {
+        Room room = roomDao.findById(room_id).orElseThrow(IllegalArgumentException::new);
         for(Window w : room.getWindows()) {
             w.setWindowStatus(w.getWindowStatus() == WindowStatus.OPEN ? WindowStatus.CLOSED: WindowStatus.OPEN);
         }
@@ -64,8 +64,8 @@ public class RoomController {
         return new RoomDto(room);
     }
     @PutMapping(path = "/{room_id}/switchHeaters")
-    public RoomDto switchStatusHeaters(@PathVariable Long id) {
-        Room room = roomDao.findById(id).orElseThrow(IllegalArgumentException::new);
+    public RoomDto switchStatusHeaters(@PathVariable Long room_id) {
+        Room room = roomDao.findById(room_id).orElseThrow(IllegalArgumentException::new);
         for(Heater h : room.getHeaters()) {
             h.setHeaterStatus(h.getHeaterStatus() == HeaterStatus.ON ? HeaterStatus.OFF: HeaterStatus.ON);
         }
