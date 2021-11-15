@@ -4,6 +4,6 @@
     "goal": "assemble"
   },
   "deploy": {
-    "jarName": "./faircrope.jar"
+    "jarName": "./build/libs/faircrope-0.0.1-SNAPSHOT.jar"
   }
 }
