@@ -4,6 +4,6 @@
     "goal": "assemble"
   },
   "deploy": {
-    "jarName": "./out/artifacts/faircrope_jar/faircrope.jar"
+    "jarName": "./build/faircrope.jar"
   }
 }
