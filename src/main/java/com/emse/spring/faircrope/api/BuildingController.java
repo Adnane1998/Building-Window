@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/building")
 @Transactional
-@CrossOrigin
 public class BuildingController {
 
     private final BuildingDao buildingDao;
