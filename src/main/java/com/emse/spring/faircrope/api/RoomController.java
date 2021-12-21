@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 @RestController // (1)
 @RequestMapping("/api/rooms") // (2)
 @Transactional // (3)
-
 public class RoomController {
 
 

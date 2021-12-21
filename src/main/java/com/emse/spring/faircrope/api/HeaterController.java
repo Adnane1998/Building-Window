@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@CrossOrigin
 @RestController // (1)
 @RequestMapping("/api/heaters") // (2)
 @Transactional // (3)
