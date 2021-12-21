@@ -33,7 +33,12 @@ public class HeaterController {
         return heaterDao.findById(id).map(HeaterDto::new).orElse(null); // (7)
     }
 
-
+    @PutMapping(path = "/{id}/switch")
+    public HeaterDto switchStatus(@PathVariable Long id) {
+        Heater heater = heaterDao.findById(id).orElseThrow(IllegalArgumentException::new);
+        heater.setHeaterStatus(heater.getHeaterStatus() == HeaterStatus.ON ? HeaterStatus.OFF: HeaterStatus.ON);
+        return new HeaterDto(heater);
+    }
 
     @PostMapping // (8)
     public HeaterDto create(@RequestBody HeaterDto dto) {
